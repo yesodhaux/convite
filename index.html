@@ -57,25 +57,26 @@
         clicarComFullscreen(() => {
             const widget = document.createElement('div');
             widget.classList.add('form-widget');
-            widget.style.position = 'absolute';
+            widget.style.position = 'fixed';
             widget.style.top = '0';
             widget.style.left = '0';
             widget.style.width = '100%';
             widget.style.height = '100%';
-            widget.style.background = 'rgba(255, 255, 255, 0.95)';
+            widget.style.background = 'rgba(0, 0, 0, 0.3)';
             widget.style.display = 'flex';
-            widget.style.flexDirection = 'column';
             widget.style.alignItems = 'center';
             widget.style.justifyContent = 'center';
             widget.style.zIndex = '20';
             widget.innerHTML = `
-                <form id="formNome" style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
-                    <label style="font-size: 18px; color: #856040;">Digite seu nome:</label>
-                    <input type="text" id="nome" required style="padding: 10px; border-radius: 10px; border: 1px solid #ccc; width: 250px;">
-                    <button type="submit" style="padding: 10px 20px; background-color: #856040; color: white; border: none; border-radius: 10px; cursor: pointer;">Confirmar</button>
-                    <p id="status" style="margin-top: 10px; color: #333;"></p>
-                </form>
-                <button id="fecharWidget" style="margin-top: 20px; background-color: transparent; border: none; color: #856040; font-size: 16px; cursor: pointer; text-decoration: underline;">Fechar</button>
+                <div style="position: relative; background: white; padding: 30px 20px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.2); max-width: 300px; width: 90%; text-align: center;">
+                    <button id="fecharWidget" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; color: #856040; cursor: pointer;">&times;</button>
+                    <form id="formNome" style="display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 20px;">
+                        <label style="font-size: 18px; color: #856040;">Digite seu nome:</label>
+                        <input type="text" id="nome" required style="padding: 10px; border-radius: 10px; border: 1px solid #ccc; width: 100%;">
+                        <button type="submit" style="padding: 10px 20px; background-color: #856040; color: white; border: none; border-radius: 10px; cursor: pointer;">Confirmar</button>
+                        <p id="status" style="margin-top: 10px; color: #333;"></p>
+                    </form>
+                </div>
             `;
             document.body.appendChild(widget);
             widget.classList.add('fade-in');
@@ -130,7 +131,7 @@
                         }
 
                         if (ultima.toLowerCase().trim() === nome.toLowerCase().trim()) {
-                            document.getElementById("status").innerText = "☀️ aguardamos você !";
+                            document.getElementById("status").innerText = "☀️ Nome adicionado com sucesso!";
                         } else if (tentativas < maxTentativas) {
                             setTimeout(verificar, 2000);
                         } else {

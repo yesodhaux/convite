@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Enviar Nome com Logs</title>
+  <title>Enviar Nome com Logs e no-cors</title>
 </head>
 <body>
-  <h2>Formulário com Verificação e Logs</h2>
+  <h2>Formulário com Verificação Final</h2>
   <form id="formNome">
     <label>Nome: <input type="text" id="nome" required></label><br>
     <button type="submit">Enviar</button>
@@ -29,6 +29,7 @@
       try {
         await fetch(scriptURL, {
           method: "POST",
+          mode: "no-cors",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded"
           },

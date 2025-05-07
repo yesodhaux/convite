@@ -34,7 +34,6 @@
           body: formData.toString()
         });
 
-        // Verifica até 5 vezes com 2s de intervalo
         let tentativas = 0;
         const maxTentativas = 5;
 
@@ -44,7 +43,14 @@
           const response = await fetch(url);
           const data = await response.json();
           const valores = data.values || [];
-          const ultima = valores[valores.length - 1]?.[0] || "";
+
+          let ultima = "";
+          for (let i = valores.length - 1; i >= 0; i--) {
+            if (valores[i][0]) {
+              ultima = valores[i][0];
+              break;
+            }
+          }
 
           if (ultima.toLowerCase() === nome.toLowerCase()) {
             document.getElementById("status").innerText = "✅ Nome adicionado com sucesso!";

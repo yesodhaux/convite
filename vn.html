@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Enviar Nome com Verificação</title>
+  <title>Enviar Nome com Verificação Robusta</title>
 </head>
 <body>
   <h2>Formulário com Verificação</h2>
@@ -23,7 +22,6 @@
       const nome = document.getElementById("nome").value.trim();
       document.getElementById("status").innerText = "Enviando...";
 
-      // Envia o nome via POST para o Apps Script
       const formData = new URLSearchParams();
       formData.append("nome", nome);
 
@@ -36,8 +34,12 @@
           body: formData.toString()
         });
 
-        // Espera 1 segundo e depois lê a última linha da planilha
-        setTimeout(async () => {
+        // Verifica até 5 vezes com 2s de intervalo
+        let tentativas = 0;
+        const maxTentativas = 5;
+
+        const verificar = async () => {
+          tentativas++;
           const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${sheetName}!A:A?key=${apiKey}`;
           const response = await fetch(url);
           const data = await response.json();
@@ -46,10 +48,14 @@
 
           if (ultima.toLowerCase() === nome.toLowerCase()) {
             document.getElementById("status").innerText = "✅ Nome adicionado com sucesso!";
+          } else if (tentativas < maxTentativas) {
+            setTimeout(verificar, 2000);
           } else {
-            document.getElementById("status").innerText = "❌ Falha ao confirmar inserção.";
+            document.getElementById("status").innerText = "❌ Falha ao confirmar inserção após múltiplas tentativas.";
           }
-        }, 1000);
+        };
+
+        setTimeout(verificar, 2000);
       } catch (err) {
         document.getElementById("status").innerText = "❌ Erro ao enviar.";
         console.error(err);

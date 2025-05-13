@@ -21,6 +21,7 @@
     <img src="CONVITE.png" alt="Convite" class="convite-img">
 
     <div class="botoes">
+        <div class="botoes-informacoes">SÁBADO 24 MAIO 17:30H</div>
         <a href="#" class="botao" id="confirmarPresenca">Confirmar Presença</a>
         <a href="#" class="botao" id="verLocalizacao">Ver Localização</a>
         <a href="#" class="botao" id="listaPresentes">Lista de Presentes</a>
@@ -54,7 +55,7 @@
 
     function clicarComFullscreen(callback) {
         entrarEmTelaCheia();
-        setTimeout(callback, 100); // Pequeno delay para garantir execução após fullscreen
+        setTimeout(callback, 100);
     }
 
     document.getElementById('confirmarPresenca').onclick = function(event) {

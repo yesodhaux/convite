@@ -1,3 +1,4 @@
+/* Reset e estrutura */
 * {
     margin: 0;
     padding: 0;
@@ -30,32 +31,42 @@ body, html {
     transition: filter 0.8s ease;
 }
 
+/* Botões grandes adaptáveis à base */
 .botoes {
     position: absolute;
-    bottom: 12vh;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 0;
+    left: 0;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    opacity: 0;
+    gap: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgba(245, 240, 230, 0.95), transparent 80%);
     transition: opacity 0.8s ease;
+    opacity: 0;
 }
 
 .botao {
-    width: 80%;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.85);
+    width: 100%;
+    padding: 18px 0;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.9);
     color: #856040;
     border: 2px solid #c9b496;
-    border-radius: 20px;
+    border-radius: 18px;
     text-align: center;
-    font-size: 14px;
     text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.3s;
 }
 
+.botao:hover {
+    background-color: #f5f0e6;
+    transform: translateY(-2px);
+}
+
+/* Tela de introdução */
 .intro {
     position: absolute;
     z-index: 10;
@@ -98,6 +109,7 @@ body, html {
     opacity: 1;
 }
 
+/* Modal de confirmação */
 .form-widget {
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -109,4 +121,15 @@ body, html {
 
 .fade-out {
     opacity: 0;
+}
+
+@media (max-width: 480px) {
+    .botao {
+        font-size: 16px;
+        padding: 16px 0;
+    }
+    .sol {
+        width: 260px;
+        height: 260px;
+    }
 }

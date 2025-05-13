@@ -33,8 +33,8 @@ body, html {
 
 /* Texto da data centralizado acima dos botões */
 .botoes-informacoes {
-    margin-top: 15vh;
-    margin-bottom: 80px;
+    margin-top: 12vh;
+    margin-bottom: 70px;
     font-size: 20px;
     font-weight: bold;
     color: #856040;

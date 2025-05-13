@@ -34,7 +34,7 @@ body, html {
 /* Texto da data centralizado acima dos botões */
 .botoes-informacoes {
     margin-top: 15vh;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     font-size: 20px;
     font-weight: bold;
     color: #856040;

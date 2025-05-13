@@ -32,15 +32,7 @@ body, html {
 }
 
 /* Texto da data centralizado acima dos botões */
-.botoes-informacoes {
-    position: relative;
-    top: -16px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #856040;
-    font-family: 'Georgia', serif;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
+$1margin-bottom: 60px;
     text-shadow: 2px 2px 0 #e7d5a2, -2px -2px 0 #e7d5a2, 2px -2px 0 #e7d5a2, -2px 2px 0 #e7d5a2;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 8px;
@@ -58,7 +50,7 @@ body, html {
     flex-direction: column;
     gap: 12px;
     padding: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 120px;
     box-sizing: border-box;
     background: linear-gradient(to top, rgba(245, 240, 230, 0.95), transparent 80%);
     transition: opacity 0.8s ease;

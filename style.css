@@ -57,7 +57,7 @@ body, html {
     flex-direction: column;
     gap: 12px;
     padding: 20px;
-    padding-bottom: 120px;
+    padding-bottom: 80px;
     box-sizing: border-box;
     background: linear-gradient(to top, rgba(245, 240, 230, 0.95), transparent 80%);
     transition: opacity 0.8s ease;

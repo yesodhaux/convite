@@ -32,7 +32,14 @@ body, html {
 }
 
 /* Texto da data centralizado acima dos botões */
-$1margin-bottom: 60px;
+.botoes-informacoes {
+    margin-top: 12vh;
+    margin-bottom: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #856040;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
     text-shadow: 2px 2px 0 #e7d5a2, -2px -2px 0 #e7d5a2, 2px -2px 0 #e7d5a2, -2px 2px 0 #e7d5a2;
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 8px;
@@ -43,7 +50,7 @@ $1margin-bottom: 60px;
 /* Botões adaptáveis à base */
 .botoes {
     position: absolute;
-    bottom: 0;
+    bottom: 15vh;
     left: 0;
     width: 100%;
     display: flex;
